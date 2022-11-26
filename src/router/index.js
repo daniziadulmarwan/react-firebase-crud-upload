@@ -6,6 +6,8 @@ import Users from "pages/Admin/Users";
 import SignIn from "pages/Signin";
 import NotFound from "pages/NotFound";
 import SignUp from "pages/Signup";
+import Counter from "pages/Counter";
+import { CountContexProvider } from "context/CountContex";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
@@ -35,6 +37,15 @@ export default function Router() {
       <Route path="/" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
+
+      <Route
+        path="counter"
+        element={
+          <CountContexProvider>
+            <Counter />
+          </CountContexProvider>
+        }
+      />
     </Routes>
   );
 }

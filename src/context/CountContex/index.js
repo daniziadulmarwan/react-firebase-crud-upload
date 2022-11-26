@@ -1,18 +1,29 @@
-import CountReducer from "context/CountReducer";
+import { createContext, useState } from "react";
 
-const { createContext, useReducer } = require("react");
-
-const INITIAL_STATE = {
-  count: 0,
-};
-
-export const CountContex = createContext(INITIAL_STATE);
+export const CountContex = createContext();
 
 export const CountContexProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(CountReducer, INITIAL_STATE);
+  // Global State
+  const [count, setCount] = useState(0);
 
+  // Action On Global State
+  const dispatch = (action) => {
+    if (action.type === "PLUS") {
+      setCount(count + 1);
+    }
+
+    if (action.type === "MINUS") {
+      if (count === 0) {
+        setCount(0);
+      } else {
+        setCount(count - 1);
+      }
+    }
+  };
+
+  // Provider
   return (
-    <CountContex.Provider value={{ count: state.count, dispatch }}>
+    <CountContex.Provider value={{ state: { count }, dispatch }}>
       {children}
     </CountContex.Provider>
   );

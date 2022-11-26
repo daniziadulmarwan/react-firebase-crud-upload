@@ -1,0 +1,19 @@
+.plus {
+  background: #50ff7c;
+  color: white;
+}
+
+.plus:hover {
+  background: #2efd61;
+  color: white;
+}
+
+.minus {
+  background: #ff5050;
+  color: white;
+}
+
+.minus:hover {
+  background: #fd2e2e;
+  color: white;
+}
