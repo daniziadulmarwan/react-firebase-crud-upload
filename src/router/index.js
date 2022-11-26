@@ -1,20 +1,23 @@
 import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import Dashboard from "../pages/Admin/Dashboard";
-import Users from "../pages/Admin/Users";
-import SignIn from "../pages/Signin";
+import { AuthContext } from "context/AuthContext";
+import Dashboard from "pages/Admin/Dashboard";
+import Users from "pages/Admin/Users";
+import SignIn from "pages/Signin";
+import NotFound from "pages/NotFound";
+import SignUp from "pages/Signup";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/signin" />;
+    return currentUser ? children : <Navigate to="/" />;
   };
+
   return (
     <Routes>
       <Route
-        path="/"
+        path="/dashboard"
         element={
           <RequireAuth>
             <Dashboard />
@@ -29,7 +32,9 @@ export default function Router() {
           </RequireAuth>
         }
       />
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

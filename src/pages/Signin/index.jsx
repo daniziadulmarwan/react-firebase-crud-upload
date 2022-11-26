@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../configs/firebase";
-import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { auth } from "configs/firebase";
+import { AuthContext } from "context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function SignIn() {
@@ -30,7 +30,7 @@ export default function SignIn() {
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
         setLoading(false);
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -52,7 +52,7 @@ export default function SignIn() {
               <form>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
-                    Email
+                    E-mail
                   </label>
                   <input
                     value={email}
@@ -99,6 +99,10 @@ export default function SignIn() {
                   )}
                 </div>
               </form>
+
+              <div className="text-center">
+                Don't have any account ? <Link to="/signup">Register here</Link>
+              </div>
             </div>
           </div>
         </div>
