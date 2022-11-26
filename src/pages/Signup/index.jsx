@@ -1,3 +1,4 @@
+import Input from "components/atoms/Input";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -17,16 +18,14 @@ export default function SignUp() {
                   </label>
                   <input type="email" className="form-control" id="email" />
                 </div>
+
                 <div className="mb-4">
                   <label htmlFor="password" className="form-label">
                     Password
                   </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                  />
+                  <Input type="password" id="password" onChange={() => {}} />
                 </div>
+
                 <div className="mb-3">
                   {isLoading ? (
                     <button
