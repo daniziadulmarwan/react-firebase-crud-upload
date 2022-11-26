@@ -1,9 +1,10 @@
 import { CountContex } from "context/CountContex";
 import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./counter.css";
 
 export default function Counter() {
-  const { state, dispatch } = useContext(CountContex);
+  const { count, dispatch } = useContext(CountContex);
 
   return (
     <div className="container">
@@ -23,7 +24,7 @@ export default function Counter() {
                 type="text"
                 className="form-control text-center rounded-1"
                 disabled
-                value={state.count}
+                value={count}
               />
 
               <button
@@ -33,6 +34,9 @@ export default function Counter() {
               >
                 <i className="bi bi-dash-lg"></i>
               </button>
+            </div>
+            <div className="card-footer text-center">
+              <Link to="/">To Signin</Link>
             </div>
           </div>
         </div>

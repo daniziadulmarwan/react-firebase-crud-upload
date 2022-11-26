@@ -34,7 +34,15 @@ export default function Router() {
           </RequireAuth>
         }
       />
-      <Route path="/" element={<SignIn />} />
+
+      <Route
+        path="/"
+        element={
+          <CountContexProvider>
+            <SignIn />
+          </CountContexProvider>
+        }
+      />
       <Route path="/signup" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
 

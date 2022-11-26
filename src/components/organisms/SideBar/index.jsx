@@ -10,7 +10,7 @@ export default function SideBar() {
       <div className="position-sticky pt-3 sidebar-sticky">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/">
+            <NavLink className="nav-link" aria-current="page" to="/dashboard">
               <i
                 className="bi bi-house-door me-2 align-text-center"
                 style={{ fontSize: 22 }}
