@@ -1,9 +1,14 @@
+import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const onSignUp = () => {
+    setIsLoading(true);
+  };
 
   return (
     <div className="container">
@@ -13,10 +18,17 @@ export default function SignUp() {
             <div className="card-body">
               <form>
                 <div className="mb-3">
+                  <label htmlFor="name" className="form-label">
+                    Fullname
+                  </label>
+                  <Input type="text" id="name" />
+                </div>
+
+                <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     E-mail
                   </label>
-                  <input type="email" className="form-control" id="email" />
+                  <Input type="email" id="email" />
                 </div>
 
                 <div className="mb-4">
@@ -28,7 +40,7 @@ export default function SignUp() {
 
                 <div className="mb-3">
                   {isLoading ? (
-                    <button
+                    <Button
                       className="btn btn-primary rounded-1 w-100"
                       type="button"
                       disabled
@@ -39,12 +51,15 @@ export default function SignUp() {
                         aria-hidden="true"
                       ></span>
                       <span className="visually-hidden">Loading...</span>
-                    </button>
+                    </Button>
                   ) : (
-                    <button className="btn btn-primary rounded-1 w-100">
-                      <i className="bi bi-send me-2"></i>
-                      Submit
-                    </button>
+                    <Button
+                      onClick={onSignUp}
+                      type="button"
+                      className="btn btn-primary rounded-1 w-100"
+                    >
+                      <i className="bi bi-send me-2"></i> Submit
+                    </Button>
                   )}
                 </div>
               </form>
