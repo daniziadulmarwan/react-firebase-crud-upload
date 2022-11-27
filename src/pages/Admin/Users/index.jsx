@@ -1,13 +1,13 @@
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState, useEffect } from "react";
-import "../../../assets/styles/dashboard.css";
-import SideBar from "../../../components/organisms/SideBar";
+import "assets/styles/dashboard.css";
+import SideBar from "components/organisms/SideBar";
 import CreateForm from "./CreateForm";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../configs/firebase";
+import { db } from "configs/firebase";
 import ListUser from "./ListUser";
 import EditForm from "./EditForm";
-import TopBar from "../../../components/organisms/TopBar";
+import TopBar from "components/organisms/TopBar";
 
 export default function Users() {
   const [showCanvas, setShowCanvas] = useState(false);

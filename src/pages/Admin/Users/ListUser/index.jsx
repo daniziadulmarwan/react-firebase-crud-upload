@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Avatar from "../../../../assets/images/1.png";
+import Avatar from "assets/images/1.png";
 import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
-import { db, storage } from "../../../../configs/firebase";
+import { db, storage } from "configs/firebase";
 
 export default function ListUser({ showCanvas }) {
   const [datas, setDatas] = useState([]);

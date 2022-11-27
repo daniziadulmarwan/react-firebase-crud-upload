@@ -4,7 +4,6 @@ import { auth } from "configs/firebase";
 import { AuthContext } from "context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { CountContex } from "context/CountContex";
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false);
@@ -12,7 +11,6 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const { dispatch } = useContext(AuthContext);
-  const { count } = useContext(CountContex);
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -39,7 +37,7 @@ export default function SignIn() {
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
         setLoading(false);
-        toast.error(" Wrong email or password!", {
+        toast.error("Wrong email or password!", {
           position: toast.POSITION.TOP_RIGHT,
         });
       });
@@ -51,7 +49,6 @@ export default function SignIn() {
         <div className="col-md-5">
           <div className="card">
             <div className="card-body">
-              <p className="my-4">{count} Users</p>
               <form>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">

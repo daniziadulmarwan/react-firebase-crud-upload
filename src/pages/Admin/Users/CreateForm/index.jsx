@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db, storage } from "../../../../configs/firebase";
+import { db, storage } from "configs/firebase";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function CreateForm({ setShowCanvas }) {

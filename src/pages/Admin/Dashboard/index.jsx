@@ -1,7 +1,7 @@
 import React from "react";
-import "../../../assets/styles/dashboard.css";
-import SideBar from "../../../components/organisms/SideBar";
-import TopBar from "../../../components/organisms/TopBar";
+import SideBar from "components/organisms/SideBar";
+import TopBar from "components/organisms/TopBar";
+import "assets/styles/dashboard.css";
 
 export default function Dashboard() {
   return (

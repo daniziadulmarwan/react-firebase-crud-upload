@@ -8,6 +8,7 @@ import NotFound from "pages/NotFound";
 import SignUp from "pages/Signup";
 import Counter from "pages/Counter";
 import { CountContexProvider } from "context/CountContex";
+import Instansi from "pages/Admin/Instansi";
 
 export default function Router() {
   const { currentUser } = useContext(AuthContext);
@@ -23,6 +24,14 @@ export default function Router() {
         element={
           <RequireAuth>
             <Dashboard />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/instansi"
+        element={
+          <RequireAuth>
+            <Instansi />
           </RequireAuth>
         }
       />

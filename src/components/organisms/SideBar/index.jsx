@@ -19,12 +19,21 @@ export default function SideBar() {
             </NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/instansi">
+              <i
+                className="bi bi-bank me-2 align-text-center"
+                style={{ fontSize: 22 }}
+              ></i>
+              Instansi
+            </NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/users">
               <i
                 className="bi bi-people me-2 align-text-center"
                 style={{ fontSize: 22 }}
               ></i>
-              Students
+              Student
             </NavLink>
           </li>
         </ul>
